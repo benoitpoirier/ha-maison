@@ -28,11 +28,13 @@
             {
               "name": "Benoît",
               "username": "kiosk_benoit",
+              "connect_entity": "media_player.spotify_benoitpoirier_fr",
               "icon": "mdi:spotify"
             },
             {
               "name": "Sandrine",
               "username": "kiosk_sandrine",
+              "connect_entity": "media_player.spotify_sandrinepoirier_fr",
               "icon": "mdi:account-music"
             }
           ],
@@ -46,10 +48,10 @@
               }
             },
             {
-              "name": "Playlists favorites",
+              "name": "Playlists",
               "source": {
                 "media_type": "playlist",
-                "favorite": true,
+                "order_by": "name",
                 "limit": 12
               }
             },
@@ -62,8 +64,12 @@
               }
             },
             {
-              "name": "Albums à découvrir",
-              "source": null
+              "name": "Titres récents",
+              "source": {
+                "media_type": "track",
+                "order_by": "last_played_desc",
+                "limit": 12
+              }
             }
           ],
           "config_entry_id": "01M5A0HX0XF615ZESGP58DV3YW",

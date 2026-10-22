@@ -1,7 +1,7 @@
 {
   "domain": "touch_music",
   "name": "Touch Music Local",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "documentation": "https://github.com/mnrgrrt/touch-music-card",
   "issue_tracker": "https://github.com/mnrgrrt/touch-music-card/issues",
   "requirements": [],

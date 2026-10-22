@@ -23,7 +23,7 @@
 //
 // https://github.com/mnrgrrt/touch-music-card - MIT licensed.
 
-const VERSIE = '2.5.0-local.2';
+const VERSIE = '2.5.0-local.3';
 
 const KLEIN = (u) => (u || '')
   .replace('ab67616d0000b273', 'ab67616d00004851')
@@ -64,6 +64,11 @@ const VEILIG = (u) => {
 // A Music Assistant uri is <provider>://<type>/<id>. The type is the half that
 // tells us which library to look in.
 const SOORT_VAN = (uri) => ((uri || '').split('://')[1] || '').split('/')[0] || '';
+const SPOTIFY_URI = (uri) => {
+  const value = String(uri || '');
+  const match = value.match(/^spotify:(track|album|artist|playlist):([^?]+)/i);
+  return match ? `spotify://${match[1]}/${match[2]}` : value;
+};
 
 // How long a fetched library list stays good. Music Assistant does not change
 // from second to second, and a cast dashboard is open for days: too short and
@@ -111,6 +116,7 @@ const TAAL = {
       naam: 'Name', entity: 'Player', volume: 'Volume goes to (optional)', icon: 'Icon',
       username: 'Music Assistant user',
       usernameHint: 'Username of a Music Assistant user whose provider filter selects the account to use.',
+      connect_entity: 'Spotify Connect player',
       turn_off: 'First switch off (optional)', unjoin: 'First detach (optional)',
       joinLeader: 'First group onto (optional)', joinMembers: 'these speakers',
       uri: 'Media id', image: 'Cover image URL (optional)',
@@ -159,6 +165,7 @@ const TAAL = {
       naam: 'Naam', entity: 'Speler', volume: 'Volume gaat naar (optioneel)', icon: 'Icoon',
       username: 'Music Assistant-gebruiker',
       usernameHint: 'Gebruikersnaam van een Music Assistant-gebruiker waarvan het bronfilter het account bepaalt.',
+      connect_entity: 'Spotify Connect-speler',
       turn_off: 'Eerst uitzetten (optioneel)', unjoin: 'Eerst loskoppelen (optioneel)',
       joinLeader: 'Eerst groeperen op (optioneel)', joinMembers: 'met deze speakers',
       uri: 'Media-id', image: 'Afbeelding-URL (optioneel)',
@@ -209,6 +216,7 @@ const TAAL = {
       naam: 'Nom', entity: 'Lecteur', volume: 'Lecteur de volume (facultatif)', icon: 'Icône',
       username: 'Utilisateur Music Assistant',
       usernameHint: 'Nom d’utilisateur MA dont le filtre fournisseur sélectionne le compte à utiliser.',
+      connect_entity: 'Lecteur Spotify Connect',
       turn_off: 'Éteindre d’abord (facultatif)', unjoin: 'Dissocier d’abord (facultatif)',
       joinLeader: 'Regrouper d’abord avec (facultatif)', joinMembers: 'ces lecteurs',
       uri: 'Identifiant média', image: 'URL de la pochette (facultatif)',
@@ -1037,21 +1045,23 @@ class MusicAssistantTouchCard extends HTMLElement {
     if (el) el.classList.remove('bezig');
   }
 
-  async _speel(uri, radio, el) {
-    if (!uri) return;
-    const username = this._user();
+  async _speel(uri, radio, el, username = this._user(), generation = this._sourceGeneration) {
+    if (!uri || generation !== this._sourceGeneration) return;
     if (el) el.classList.add('bezig');
     this._opt = { state: 'playing', tot: Date.now() + 8000 };
     try {
       await this._voorbereiden();
+      if (generation !== this._sourceGeneration) return;
       await this._startVolume();
+      if (generation !== this._sourceGeneration) return;
       await this._call('music_assistant', 'play_media',
         this._avecUser({ media_id: uri, enqueue: 'replace', radio_mode: !!radio }, username),
         { entity_id: this._speler() });
     } catch (e) {
       this._fout(e);
+    } finally {
+      if (el) el.classList.remove('bezig');
     }
-    if (el) el.classList.remove('bezig');
   }
 
   // Een nummer uit een lijst starten. We zetten de hele lijst in de wachtrij,
@@ -1277,12 +1287,47 @@ class MusicAssistantTouchCard extends HTMLElement {
     }).join('');
   }
 
-  _wisselSource(index) {
+  _connectTrack(source) {
+    const state = source && source.connect_entity ? this._st(source.connect_entity) : null;
+    if (!state || !SPEELT.includes(state.state)) return '';
+    return SPOTIFY_URI((state.attributes || {}).media_content_id || '');
+  }
+
+  _connectStopEntity(source) {
+    const spotify = source && source.connect_entity ? this._st(source.connect_entity) : null;
+    const sourceName = String((spotify && spotify.attributes && spotify.attributes.source) || '')
+      .trim().toLowerCase();
+    if (sourceName) {
+      const linked = this._zoneLijst().find((zone) => {
+        const state = this._st(zone.entity);
+        const name = String((state && state.attributes && state.attributes.friendly_name)
+          || zone.name || zone.entity).trim().toLowerCase();
+        return name === sourceName && state && SPEELT.includes(state.state);
+      });
+      if (linked) return linked.entity;
+    }
+    const active = this._actief();
+    const activeState = this._st(active);
+    if (activeState && SPEELT.includes(activeState.state)) return active;
+    const connectPlayer = this._zoneLijst().find((zone) => {
+      const state = this._st(zone.entity);
+      const mediaId = state && state.attributes ? state.attributes.media_content_id || '' : '';
+      return state && SPEELT.includes(state.state) && mediaId.startsWith('spotify_connect://');
+    });
+    return connectPlayer ? connectPlayer.entity : '';
+  }
+
+  async _wisselSource(index) {
     if (!this._sources[index] || index === this._src) return;
+    const previous = this._sourceCfg();
+    const target = this._sources[index];
+    const stopEntity = this._connectStopEntity(previous);
+    const track = this._connectTrack(target);
     this._src = index;
-    this._sourceGeneration++;
+    const generation = ++this._sourceGeneration;
     this._searchSeq++;
     this._bezig = false;
+    this._opt = null;
     this._saveSource();
     this._bron = {};
     this._bezigBron = {};
@@ -1296,6 +1341,12 @@ class MusicAssistantTouchCard extends HTMLElement {
     this._tekenSources();
     this._tekenRechts();
     this._vulAan();
+    if (stopEntity) {
+      await this._call('media_player', 'media_stop', {}, { entity_id: stopEntity })
+        .catch((error) => this._fout(error));
+    }
+    if (generation !== this._sourceGeneration) return;
+    if (track) await this._speel(track, false, null, target.username, generation);
   }
 
   // Navigatieknoppen naar andere dashboardweergaven, zodat de view uit
@@ -2163,13 +2214,18 @@ class MusicAssistantTouchCardEditor extends HTMLElement {
         { name: 'icon', selector: { icon: {} } },
       ] },
       { name: 'username', required: true, selector: { text: {} } },
+      { name: 'connect_entity', selector: { entity: {
+        filter: { domain: 'media_player', integration: 'spotify' },
+      } } },
     ];
     sources.forEach((source, index) => {
       const form = this._form(sSchema, {
         name: source.name || '', icon: this._mdi(source.icon), username: source.username || '',
+        connect_entity: source.connect_entity || '',
       }, (value) => {
         const entry = { name: value.name, username: (value.username || '').trim() };
         if (value.icon) entry.icon = value.icon;
+        if (value.connect_entity) entry.connect_entity = value.connect_entity;
         this._cfg.music_sources = (this._cfg.music_sources || []).slice();
         this._cfg.music_sources[index] = entry;
         this._melden();
