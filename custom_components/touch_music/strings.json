@@ -1,0 +1,14 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Touch Music Local",
+        "description": "Load the local Touch Music card in the Home Assistant frontend.",
+        "data": {}
+      }
+    },
+    "abort": {
+      "already_configured": "Touch Music Local is already configured."
+    }
+  }
+}
