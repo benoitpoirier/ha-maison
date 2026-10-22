@@ -23,7 +23,7 @@
 //
 // https://github.com/mnrgrrt/touch-music-card - MIT licensed.
 
-const VERSIE = '2.5.0-local.1';
+const VERSIE = '2.5.0-local.2';
 
 const KLEIN = (u) => (u || '')
   .replace('ab67616d0000b273', 'ab67616d00004851')
@@ -529,6 +529,10 @@ class MusicAssistantTouchCard extends HTMLElement {
     this._beeld = {};      // uri -> the cover Music Assistant has right now
     this._bron = {};       // source key -> { tijd, items }
     this._bezigBron = {};  // source key -> in-flight promise, so two draws fetch once
+  }
+
+  connectedCallback() {
+    if (this._hass && this._cfg) this._vulAan();
   }
 
   static getConfigElement() {
