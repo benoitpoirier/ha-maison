@@ -597,6 +597,10 @@ class MusicAssistantTouchCard extends HTMLElement {
     return `touch_music:source:${this._cfg.config_entry_id}:${path}`;
   }
 
+  _trackStorageKey(username) {
+    return `${this._sourceStorageKey()}:track:${username}`;
+  }
+
   _restoreSource() {
     this._src = 0;
     if (!this._sources.length) return;
@@ -1287,10 +1291,29 @@ class MusicAssistantTouchCard extends HTMLElement {
     }).join('');
   }
 
-  _connectTrack(source) {
+  _connectLiveTrack(source) {
     const state = source && source.connect_entity ? this._st(source.connect_entity) : null;
     if (!state || !SPEELT.includes(state.state)) return '';
     return SPOTIFY_URI((state.attributes || {}).media_content_id || '');
+  }
+
+  _rememberConnectTrack(source, track) {
+    if (!source || !source.username || !track) return;
+    try {
+      window.localStorage.setItem(this._trackStorageKey(source.username), track);
+    } catch (error) { /* Kiosk browsers can disable local storage. */ }
+  }
+
+  _connectTrack(source) {
+    const liveTrack = this._connectLiveTrack(source);
+    if (liveTrack) {
+      this._rememberConnectTrack(source, liveTrack);
+      return liveTrack;
+    }
+    if (!source || !source.username) return '';
+    try {
+      return window.localStorage.getItem(this._trackStorageKey(source.username)) || '';
+    } catch (error) { return ''; }
   }
 
   _connectStopEntity(source) {
@@ -1320,6 +1343,7 @@ class MusicAssistantTouchCard extends HTMLElement {
   async _wisselSource(index) {
     if (!this._sources[index] || index === this._src) return;
     const previous = this._sourceCfg();
+    this._rememberConnectTrack(previous, this._connectLiveTrack(previous));
     const target = this._sources[index];
     const stopEntity = this._connectStopEntity(previous);
     const track = this._connectTrack(target);
