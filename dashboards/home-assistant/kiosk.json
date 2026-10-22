@@ -1,6 +1,70 @@
 {
   "views": [
     {
+      "title": "Menu",
+      "path": "menu",
+      "icon": "mdi:menu",
+      "type": "panel",
+      "background": "radial-gradient(circle at 10% 15%, rgba(255,184,108,.20), transparent 30%), radial-gradient(circle at 90% 18%, rgba(196,120,226,.18), transparent 32%), radial-gradient(circle at 72% 95%, rgba(80,196,170,.16), transparent 36%), radial-gradient(circle at 25% 90%, rgba(110,140,240,.12), transparent 30%), linear-gradient(150deg, #0e1b25 0%, #142430 48%, #1b1a30 100%)",
+      "cards": [
+        {
+          "type": "custom:button-card",
+          "template": "kiosk_menu_panel",
+          "custom_fields": {
+            "menu_controls": {
+              "card": {
+                "type": "grid",
+                "columns": 2,
+                "square": false,
+                "cards": [
+                  {
+                    "type": "custom:button-card",
+                    "template": "kiosk_menu_tile",
+                    "name": "Lecture",
+                    "icon": "mdi:play-circle-outline",
+                    "show_state": false,
+                    "tap_action": { "action": "navigate", "navigation_path": "/dashboard-kiosk/lecture" },
+                    "hold_action": { "action": "none" },
+                    "variables": { "accent": "229,115,155" }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "template": "kiosk_menu_tile",
+                    "name": "Music Browser",
+                    "icon": "mdi:music-box-multiple",
+                    "show_state": false,
+                    "tap_action": { "action": "navigate", "navigation_path": "/dashboard-kiosk/music-browser" },
+                    "hold_action": { "action": "none" },
+                    "variables": { "accent": "80,190,180" }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "template": "kiosk_menu_tile",
+                    "name": "Éclairage",
+                    "icon": "mdi:lightbulb-group",
+                    "show_state": false,
+                    "tap_action": { "action": "navigate", "navigation_path": "/dashboard-kiosk/eclairage" },
+                    "hold_action": { "action": "none" },
+                    "variables": { "accent": "255,196,105" }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "template": "kiosk_menu_tile",
+                    "name": "Météo",
+                    "icon": "mdi:weather-partly-cloudy",
+                    "show_state": false,
+                    "tap_action": { "action": "navigate", "navigation_path": "/dashboard-kiosk/meteo" },
+                    "hold_action": { "action": "none" },
+                    "variables": { "accent": "112,185,210" }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "title": "Music Browser",
       "path": "music-browser",
       "icon": "mdi:compass-outline",
@@ -74,6 +138,34 @@
           ],
           "config_entry_id": "01M5A0HX0XF615ZESGP58DV3YW",
           "volume_step": 1
+        }
+      ]
+    },
+    {
+      "title": "Lecture",
+      "path": "lecture",
+      "icon": "mdi:play-circle-outline",
+      "type": "panel",
+      "background": "radial-gradient(circle at 12% 18%, rgba(255,184,108,.18), transparent 32%), radial-gradient(circle at 88% 12%, rgba(196,120,226,.16), transparent 30%), radial-gradient(circle at 70% 95%, rgba(80,196,170,.14), transparent 34%), linear-gradient(150deg, #0e1b25 0%, #142430 48%, #1b1a30 100%)",
+      "cards": [
+        {
+          "type": "custom:touch-music-now-playing",
+          "height": 520,
+          "config_entry_id": "01M5A0HX0XF615ZESGP58DV3YW",
+          "browser_path": "/dashboard-kiosk/menu",
+          "favorite_accounts": {
+            "spotify--vBxfzzeZ": "media_player.spotifyplus_benoitpoirier_fr"
+          },
+          "players": [
+            {
+              "name": "Echo Show 8",
+              "entity": "media_player.echo_show_8_2"
+            },
+            {
+              "name": "Denon AVR-X3500H",
+              "entity": "media_player.denon_avr_x3500h_3"
+            }
+          ]
         }
       ]
     },
@@ -325,6 +417,61 @@
     }
   ],
   "button_card_templates": {
+    "kiosk_menu_panel": {
+      "show_name": false,
+      "show_icon": false,
+      "show_state": false,
+      "tap_action": {
+        "action": "none"
+      },
+      "styles": {
+        "card": [
+          { "width": "100%" },
+          { "height": "100%" },
+          { "min-height": "100%" },
+          { "margin": "0" },
+          { "padding": "0" },
+          { "border": "0" },
+          { "border-radius": "0" },
+          { "box-shadow": "none" },
+          { "background": "transparent" },
+          { "overflow": "hidden" }
+        ],
+        "grid": [
+          { "grid-template-areas": "\"menu_controls\"" },
+          { "grid-template-columns": "minmax(0,1fr)" },
+          { "grid-template-rows": "minmax(0,1fr)" },
+          { "align-content": "center" },
+          { "width": "100%" },
+          { "height": "100%" }
+        ],
+        "custom_fields": {
+          "menu_controls": [
+            { "width": "100%" },
+            { "height": "100%" }
+          ]
+        }
+      },
+      "extra_styles": ":host{display:block!important;width:100%!important;max-width:none!important;flex:1 1 100%!important;height:100%!important;min-height:100%!important}ha-card{width:100%;height:100%;min-height:100%;margin:0;background:transparent;border:0;box-shadow:none}#container{width:100%;height:100%;grid-template-areas:\"menu_controls\";grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);align-content:center}#menu_controls{box-sizing:border-box;display:flex;align-items:center;justify-content:center;min-width:0;min-height:100%;width:100%;height:100%;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}#menu_controls>hui-card,#menu_controls>hui-grid-card{width:min(clamp(280px,45vw,350px),100%)!important;height:auto!important;max-width:100%!important;min-width:0!important;min-height:0!important;flex:0 1 clamp(280px,45vw,350px)!important;--grid-card-gap:clamp(56px,9vw,70px)}"
+    },
+    "kiosk_menu_tile": {
+      "template": "kiosk_light_tile",
+      "show_state": false,
+      "styles": {
+        "card": [
+          { "width": "clamp(112px, 18vw, 140px)" },
+          { "height": "clamp(112px, 18vw, 140px)" },
+          { "max-width": "140px" },
+          { "aspect-ratio": "1 / 1" },
+          { "justify-self": "center" }
+        ],
+        "grid": [
+          { "grid-template-areas": "\"i\" \"n\"" },
+          { "grid-template-rows": "1fr min-content" },
+          { "height": "100%" }
+        ]
+      }
+    },
     "kiosk_scene_button": {
       "show_icon": true,
       "show_name": true,

@@ -1,0 +1,8 @@
+{
+	"mcpServers": {
+		"homeassistant-mcp-server": {
+			"url": "http://domopi.maison.arpa/api/mcp",
+			"type": "http"
+		}
+	}
+}

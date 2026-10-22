@@ -1,0 +1,19 @@
+{
+  "servers": {
+    "home-assistant": {
+      "type": "http",
+      "url": "http://domopi.maison.arpa/api/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:home-assistant-token}"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "home-assistant-token",
+      "description": "Home Assistant access token",
+      "password": true
+    }
+  ]
+}

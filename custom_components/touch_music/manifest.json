@@ -1,13 +1,14 @@
 {
   "domain": "touch_music",
   "name": "Touch Music Local",
-  "version": "1.1.3",
+  "version": "1.1.11",
   "documentation": "https://github.com/mnrgrrt/touch-music-card",
   "issue_tracker": "https://github.com/mnrgrrt/touch-music-card/issues",
   "requirements": [],
   "dependencies": [
     "frontend",
-    "http"
+    "http",
+    "music_assistant"
   ],
   "codeowners": [],
   "config_flow": true,

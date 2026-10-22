@@ -1,0 +1,1717 @@
+{
+  "views": [
+    {
+      "type": "sections",
+      "max_columns": 4,
+      "title": "Home",
+      "path": "home",
+      "icon": "mdi:home",
+      "sections": [
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:button-card",
+                  "name": "Claire",
+                  "icon": "mdi:white-balance-sunny",
+                  "size": "20%",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "input_select.select_option",
+                    "data": {
+                      "option": "Claire"
+                    },
+                    "target": {
+                      "entity_id": "input_select.currentscene"
+                    }
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "padding": "12px"
+                      },
+                      {
+                        "border-radius": "16px"
+                      },
+                      {
+                        "background-color": "[[[\n  return states['input_select.currentscene'].state === 'Claire'\n    ? 'rgba(255, 230, 150, 0.4)'\n    : 'var(--card-background-color)';\n]]]\n"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "[[[\n  return states['input_select.currentscene'].state === 'Claire'\n    ? '#ffb300'\n    : 'var(--primary-text-color)';\n]]]\n"
+                      },
+                      {
+                        "width": "40px"
+                      },
+                      {
+                        "height": "40px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Normal",
+                  "icon": "mdi:brightness-6",
+                  "size": "40%",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "input_select.select_option",
+                    "data": {
+                      "option": "Normal"
+                    },
+                    "target": {
+                      "entity_id": "input_select.currentscene"
+                    }
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "padding": "12px"
+                      },
+                      {
+                        "border-radius": "16px"
+                      },
+                      {
+                        "background-color": "[[[\n  return states['input_select.currentscene'].state === 'Normal'\n    ? 'rgba(200, 200, 200, 0.4)'\n    : 'var(--card-background-color)';\n]]]\n"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "[[[\n  return states['input_select.currentscene'].state === 'Normal'\n    ? '#888'\n    : 'var(--primary-text-color)';\n]]]\n"
+                      },
+                      {
+                        "width": "40px"
+                      },
+                      {
+                        "height": "40px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Lounge",
+                  "icon": "mdi:sofa",
+                  "size": "40%",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "input_select.select_option",
+                    "data": {
+                      "option": "Lounge"
+                    },
+                    "target": {
+                      "entity_id": "input_select.currentscene"
+                    }
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "padding": "12px"
+                      },
+                      {
+                        "border-radius": "16px"
+                      },
+                      {
+                        "background-color": "[[[\n  return states['input_select.currentscene'].state === 'Lounge'\n    ? 'rgba(150, 200, 255, 0.4)'\n    : 'var(--card-background-color)';\n]]]\n"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "[[[\n  return states['input_select.currentscene'].state === 'Lounge'\n    ? '#4a90e2'\n    : 'var(--primary-text-color)';\n]]]\n"
+                      },
+                      {
+                        "width": "40px"
+                      },
+                      {
+                        "height": "40px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Sombre",
+                  "icon": "mdi:weather-night",
+                  "size": "40%",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "input_select.select_option",
+                    "data": {
+                      "option": "Sombre"
+                    },
+                    "target": {
+                      "entity_id": "input_select.currentscene"
+                    }
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "padding": "12px"
+                      },
+                      {
+                        "border-radius": "16px"
+                      },
+                      {
+                        "background-color": "[[[\n  return states['input_select.currentscene'].state === 'Sombre'\n    ? 'rgba(80, 80, 120, 0.4)'\n    : 'var(--card-background-color)';\n]]]\n"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "[[[\n  return states['input_select.currentscene'].state === 'Sombre'\n    ? '#303f9f'\n    : 'var(--primary-text-color)';\n]]]\n"
+                      },
+                      {
+                        "width": "40px"
+                      },
+                      {
+                        "height": "40px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Off",
+                  "icon": "mdi:power",
+                  "size": "40%",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "input_select.select_option",
+                    "data": {
+                      "option": "Off"
+                    },
+                    "target": {
+                      "entity_id": "input_select.currentscene"
+                    }
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "padding": "12px"
+                      },
+                      {
+                        "border-radius": "16px"
+                      },
+                      {
+                        "background-color": "[[[\n  return states['input_select.currentscene'].state === 'Off'\n    ? 'rgba(0, 0, 0, 0.4)'\n    : 'var(--card-background-color)';\n]]]\n"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "[[[\n  return states['input_select.currentscene'].state === 'Off'\n    ? '#000'\n    : 'var(--primary-text-color)';\n]]]\n"
+                      },
+                      {
+                        "width": "40px"
+                      },
+                      {
+                        "height": "40px"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "grid_options": {
+                "columns": "full"
+              }
+            }
+          ],
+          "column_span": 4
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "input_boolean.currentonoff"
+                },
+                {
+                  "entity": "light.moes_dimmer_02",
+                  "name": "Plafonnier Salle"
+                },
+                {
+                  "entity": "light.bulb01_ikea_led1732g11",
+                  "secondary_info": "brightness",
+                  "name": "Plafonnier Salon"
+                },
+                {
+                  "entity": "switch.switch02_sonoff",
+                  "name": "Lampe coin salle"
+                },
+                {
+                  "entity": "light.moes_dimmer_01",
+                  "name": "Spots Musique"
+                },
+                {
+                  "entity": "light.glampe",
+                  "name": "Lampe Salon"
+                }
+              ],
+              "show_header_toggle": false,
+              "state_color": true,
+              "title": "RDC"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.switch03_sonoff",
+                  "name": "Eclairage escalier"
+                },
+                {
+                  "entity": "timer.eclairage_escalier_minuterie"
+                },
+                {
+                  "entity": "switch.switch04_moes_right",
+                  "name": "Eclairage couloir"
+                },
+                {
+                  "entity": "timer.eclairage_couloir_minuterie"
+                },
+                {
+                  "entity": "light.moes_dimmer_03",
+                  "name": "Plafonnier Valentine"
+                },
+                {
+                  "entity": "light.moes_dimmer_04",
+                  "name": "Plafonnier Dressing"
+                }
+              ],
+              "title": "Etage",
+              "show_header_toggle": false,
+              "state_color": true
+            }
+          ],
+          "column_span": 4
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "show_name": true,
+              "show_icon": true,
+              "show_state": true,
+              "type": "glance",
+              "entities": [
+                {
+                  "entity": "sensor.nodeid_4_battery_level"
+                },
+                {
+                  "entity": "sensor.motion01_aqara_battery"
+                },
+                {
+                  "entity": "sensor.remote01_ikea_e1810_battery"
+                },
+                {
+                  "entity": "sensor.remote01_iluminize_battery"
+                },
+                {
+                  "entity": "sensor.smokedetector01_nodeid_3_battery_level"
+                },
+                {
+                  "entity": "sensor.floodsensor02_aqara_battery"
+                },
+                {
+                  "entity": "sensor.thermostat_battery_percent"
+                },
+                {
+                  "entity": "sensor.remote04_aqara_battery"
+                }
+              ],
+              "title": "Batteries",
+              "state_color": true
+            },
+            {
+              "show_name": true,
+              "show_icon": true,
+              "type": "button",
+              "entity": "input_boolean.partyonoff",
+              "name": "Party",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              }
+            }
+          ],
+          "column_span": 4
+        }
+      ],
+      "cards": []
+    },
+    {
+      "type": "sections",
+      "max_columns": 4,
+      "title": "Température",
+      "path": "temperature",
+      "icon": "mdi:home-thermometer-outline",
+      "sections": [
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "grid",
+              "square": false,
+              "columns": 1,
+              "cards": [
+                {
+                  "type": "thermostat",
+                  "entity": "climate.salle_2",
+                  "features": [
+                    {
+                      "type": "climate-hvac-modes",
+                      "hvac_modes": [
+                        "auto",
+                        "heat",
+                        "off"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "grid_options": {
+                "columns": 24,
+                "rows": "auto"
+              }
+            },
+            {
+              "show_name": true,
+              "show_icon": true,
+              "type": "custom:button-card",
+              "state": [
+                {
+                  "value": "on",
+                  "color": "green",
+                  "rotate": true
+                },
+                {
+                  "value": "off",
+                  "color": "red",
+                  "rotate": false
+                }
+              ],
+              "tap_action": {
+                "action": "toggle"
+              },
+              "entity": "switch.moes_switch_01",
+              "icon": "mdi:fan",
+              "name": "VMC"
+            }
+          ],
+          "column_span": 4
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "history-graph",
+              "grid_options": {
+                "columns": "full"
+              },
+              "entities": [
+                {
+                  "entity": "sensor.mushimushi_health_climate_temperature",
+                  "name": "T° MushiMushi"
+                },
+                {
+                  "entity": "sensor.nodeid_4_temperature_air",
+                  "name": "T° Garage"
+                },
+                {
+                  "entity": "sensor.floodsensor02_aqara_device_temperature",
+                  "name": "???"
+                },
+                {
+                  "entity": "sensor.thermostat_current_temperature",
+                  "name": "T° Salle"
+                },
+                {
+                  "entity": "sensor.motion01_aqara_device_temperature",
+                  "name": "Escalier (Detect. Presence)"
+                },
+                {
+                  "entity": "sensor.floodsensor03_aqara_device_temperature",
+                  "name": "Grenier"
+                },
+                {
+                  "entity": "sensor.floodsensor04_aqara_device_temperature",
+                  "name": "Ext. Garage"
+                }
+              ],
+              "title": "Température (72h)",
+              "hours_to_show": 72
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.mushimushi_health_climate_temperature",
+                  "name": "T° MushiMushi"
+                },
+                {
+                  "entity": "sensor.smokedetector01_temperature_air",
+                  "name": "T° Escalier (Detecteur fumée)"
+                },
+                {
+                  "entity": "sensor.nodeid_4_temperature_air",
+                  "name": "T° Garage"
+                },
+                {
+                  "entity": "sensor.floodsensor02_aqara_device_temperature"
+                },
+                {
+                  "entity": "sensor.thermostat_current_temperature",
+                  "name": "T° Salle"
+                }
+              ],
+              "title": "Température (30j)",
+              "hours_to_show": 720,
+              "grid_options": {
+                "columns": "full"
+              }
+            }
+          ],
+          "column_span": 4
+        }
+      ],
+      "header": {
+        "layout": "center",
+        "badges_position": "bottom",
+        "badges_wrap": "wrap"
+      },
+      "cards": []
+    },
+    {
+      "type": "sections",
+      "max_columns": 4,
+      "title": "Chaudière",
+      "path": "chaudiere",
+      "sections": [
+        {
+          "type": "grid",
+          "column_span": 1,
+          "cards": [
+            {
+              "type": "logbook",
+              "target": {
+                "device_id": "378b01bd043e0dd9a7eaa3f62680dde4"
+              },
+              "grid_options": {
+                "columns": 15,
+                "rows": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "history-graph",
+              "title": "Fonctionnement chaudière",
+              "hours_to_show": 3,
+              "entities": [
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_statenumber_label",
+                  "name": "Etat chaudière"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_statenumber",
+                  "name": "Code état"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_status01_pumpstate",
+                  "name": "Circulateur"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "title": "Indicateurs",
+              "entities": [
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_statenumber_label",
+                  "name": "État chaudière"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_statenumber",
+                  "name": "Code état interne",
+                  "secondary_info": "last-updated"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_counterstartattempts3",
+                  "name": "Tentatives allumage (compteur 3)",
+                  "secondary_info": "last-updated"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_counterstartattempts4",
+                  "name": "Tentatives allumage (compteur 4)",
+                  "secondary_info": "last-updated"
+                }
+              ]
+            },
+            {
+              "type": "custom:logbook-card",
+              "entity": "sensor.chaudiere_ebusd_bai_statenumber_label",
+              "title": "Changements d'état",
+              "hours_to_show": 3,
+              "max_items": 3
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 3,
+          "cards": [
+            {
+              "type": "history-graph",
+              "title": "Circuit chauffage",
+              "grid_options": {
+                "rows": 5,
+                "columns": "full"
+              },
+              "entities": [
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_flowtemp_temp",
+                  "name": "Température départ"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_returntemp_temp",
+                  "name": "Température retour"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_flowtempdesired",
+                  "name": "Consigne départ"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_flowtempmax",
+                  "name": "Température max départ"
+                }
+              ]
+            },
+            {
+              "type": "history-graph",
+              "title": "Eau chaude sanitaire",
+              "grid_options": {
+                "columns": "full",
+                "rows": 5
+              },
+              "entities": [
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_storagetemp_temp",
+                  "name": "Température ballon"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_storagetempmax",
+                  "name": "Température max ballon (limite)"
+                }
+              ]
+            },
+            {
+              "type": "history-graph",
+              "title": "Debug eBUS (Status01)",
+              "grid_options": {
+                "columns": "full",
+                "rows": 5
+              },
+              "entities": [
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_status01_temp",
+                  "name": "Départ (status)"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_status01_temp_1",
+                  "name": "Retour (status)"
+                },
+                {
+                  "entity": "sensor.chaudiere_ebusd_bai_status01_temp_4",
+                  "name": "Ballon (status)"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "header": {
+        "card": {
+          "type": "markdown",
+          "text_only": true,
+          "content": "# Chaudière"
+        },
+        "layout": "start",
+        "badges_position": "bottom",
+        "badges_wrap": "wrap"
+      },
+      "icon": "mdi:home-thermometer",
+      "cards": []
+    },
+    {
+      "type": "sections",
+      "max_columns": 4,
+      "title": "Médias",
+      "path": "medias",
+      "icon": "mdi:movie-open-outline",
+      "sections": [
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mini-media-player",
+                  "entity": "media_player.denon_avr_x3500h",
+                  "source": "full",
+                  "volume_stateless": false,
+                  "group": false,
+                  "artwork": "material",
+                  "sound_mode": "full",
+                  "info": "scroll"
+                },
+                {
+                  "type": "media-control",
+                  "entity": "media_player.denon_avr_x3500h_2"
+                },
+                {
+                  "type": "custom:mini-media-player",
+                  "entity": "media_player.mini_denon"
+                },
+                {
+                  "type": "media-control",
+                  "entity": "media_player.mini_denon"
+                }
+              ],
+              "title": "Denon"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mini-media-player",
+                  "entity": "media_player.android_tv_192_168_201_4",
+                  "source": "full",
+                  "artwork": "full-cover",
+                  "info": "scroll"
+                },
+                {
+                  "type": "media-control",
+                  "entity": "media_player.shield"
+                },
+                {
+                  "type": "media-control",
+                  "entity": "media_player.shield_2"
+                }
+              ],
+              "title": "Shield"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "custom:spotifyplus-card",
+              "cardUniqueId": "e00e7e02-798f-4917-951b-b32845f987bc",
+              "sections": [
+                "player",
+                "albumfavorites",
+                "artistfavorites",
+                "playlistfavorites",
+                "recents",
+                "devices",
+                "trackfavorites",
+                "userpresets",
+                "audiobookfavorites",
+                "showfavorites",
+                "episodefavorites",
+                "searchmedia"
+              ],
+              "entity": "media_player.spotifyplus_benoitpoirier_fr",
+              "playerHeaderTitle": "{player.source}",
+              "playerHeaderArtistTrack": "{player.media_artist} - {player.media_title}",
+              "playerHeaderAlbum": "{player.media_album_name} {player.sp_playlist_name_title}",
+              "playerHeaderNoMediaPlayingText": "\"{player.name}\" state is \"{player.state}\"",
+              "albumFavBrowserTitle": "Album Favorites for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "albumFavBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "albumFavBrowserItemsPerRow": 4,
+              "albumFavBrowserItemsHideTitle": false,
+              "albumFavBrowserItemsHideSubTitle": false,
+              "albumFavBrowserItemsSortTitle": true,
+              "artistFavBrowserTitle": "Artist Favorites for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "artistFavBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "artistFavBrowserItemsPerRow": 4,
+              "artistFavBrowserItemsHideTitle": false,
+              "artistFavBrowserItemsHideSubTitle": true,
+              "artistFavBrowserItemsSortTitle": true,
+              "audiobookFavBrowserTitle": "Audiobook Favorites for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "audiobookFavBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "audiobookFavBrowserItemsPerRow": 4,
+              "audiobookFavBrowserItemsHideTitle": false,
+              "audiobookFavBrowserItemsHideSubTitle": false,
+              "audiobookFavBrowserItemsSortTitle": true,
+              "categoryBrowserTitle": "Categorys for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "categoryBrowserSubTitle": "click a tile item to view the content; click-hold for actions",
+              "categoryBrowserItemsPerRow": 4,
+              "categoryBrowserItemsHideTitle": false,
+              "categoryBrowserItemsHideSubTitle": true,
+              "categoryBrowserItemsSortTitle": true,
+              "deviceBrowserTitle": "Spotify Connect Devices ({medialist.filteritemcount} items)",
+              "deviceBrowserSubTitle": "click an item to select the device; click-hold for device info",
+              "deviceBrowserItemsPerRow": 1,
+              "deviceBrowserItemsHideTitle": false,
+              "deviceBrowserItemsHideSubTitle": true,
+              "episodeFavBrowserTitle": "Episode Favorites for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "episodeFavBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "episodeFavBrowserItemsPerRow": 4,
+              "episodeFavBrowserItemsHideTitle": false,
+              "episodeFavBrowserItemsHideSubTitle": false,
+              "episodeFavBrowserItemsSortTitle": true,
+              "playlistFavBrowserTitle": "Playlist Favorites for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "playlistFavBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "playlistFavBrowserItemsPerRow": 4,
+              "playlistFavBrowserItemsHideTitle": false,
+              "playlistFavBrowserItemsHideSubTitle": false,
+              "playlistFavBrowserItemsSortTitle": true,
+              "recentBrowserTitle": "Recently Played by {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "recentBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "recentBrowserItemsPerRow": 4,
+              "recentBrowserItemsHideTitle": false,
+              "recentBrowserItemsHideSubTitle": false,
+              "searchMediaBrowserTitle": "Search Media for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "searchMediaBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "searchMediaBrowserUseDisplaySettings": false,
+              "searchMediaBrowserItemsPerRow": 4,
+              "searchMediaBrowserItemsHideTitle": false,
+              "searchMediaBrowserItemsHideSubTitle": true,
+              "searchMediaBrowserItemsSortTitle": false,
+              "searchMediaBrowserSearchLimit": 50,
+              "searchMediaBrowserSearchTypes": [
+                "Albums",
+                "Artists",
+                "Playlists",
+                "Tracks",
+                "AudioBooks",
+                "Shows",
+                "Episodes"
+              ],
+              "showFavBrowserTitle": "Show Favorites for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "showFavBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "showFavBrowserItemsPerRow": 4,
+              "showFavBrowserItemsHideTitle": false,
+              "showFavBrowserItemsHideSubTitle": true,
+              "showFavBrowserItemsSortTitle": true,
+              "trackFavBrowserTitle": "Track Favorites for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "trackFavBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "trackFavBrowserItemsPerRow": 4,
+              "trackFavBrowserItemsHideTitle": false,
+              "trackFavBrowserItemsHideSubTitle": false,
+              "trackFavBrowserItemsSortTitle": false,
+              "userPresetBrowserTitle": "User Presets for {player.sp_user_display_name} ({medialist.filteritemcount} items)",
+              "userPresetBrowserSubTitle": "click a tile item to play the content; click-hold for actions",
+              "userPresetBrowserItemsPerRow": 4,
+              "userPresetBrowserItemsHideTitle": false,
+              "userPresetBrowserItemsHideSubTitle": false,
+              "userPresets": [
+                {
+                  "name": "Daily Mix 1",
+                  "subtitle": "Various Artists",
+                  "image_url": "https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebcd3f796bd7ea49ed7615a550/1/en/default",
+                  "uri": "spotify:playlist:37i9dQZF1E39vTG3GurFPW",
+                  "type": "playlist"
+                },
+                {
+                  "name": "My Track Favorites",
+                  "subtitle": "Shuffled",
+                  "image_url": "https://t.scdn.co/images/728ed47fc1674feb95f7ac20236eb6d7.jpeg",
+                  "shuffle": true,
+                  "type": "trackfavorites"
+                }
+              ],
+              "customImageUrls": {
+                "X_default": "/local/images/spotifyplus_card_customimages/default.png",
+                "X_empty preset": "/local/images/spotifyplus_card_customimages/empty_preset.png",
+                "X_Daily Mix 1": "https://brands.home-assistant.io/spotifyplus/icon.png",
+                "X_playerBackground": "/local/images/spotifyplus_card_customimages/playerBackground.png",
+                "X_playerIdleBackground": "/local/images/spotifyplus_card_customimages/playerIdleBackground.png",
+                "X_playerOffBackground": "/local/images/spotifyplus_card_customimages/playerOffBackground.png"
+              }
+            }
+          ],
+          "column_span": 2
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mini-media-player",
+                  "entity": "media_player.lg_webos_smart_tv"
+                },
+                {
+                  "type": "custom:lg-remote-control",
+                  "entity": "media_player.lg_webos_smart_tv",
+                  "mac": "38:8c:50:fc:89:d2"
+                }
+              ],
+              "title": "TV"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "DurDur",
+      "icon": "mdi:nas",
+      "type": "sections",
+      "badges": [],
+      "cards": [],
+      "sections": [
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "gauge",
+                  "entity": "sensor.durdur_volume_1_volume_used",
+                  "name": "Volume 1"
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.durdur_volume_2_volume_used",
+                  "name": "Volume 2"
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.durdur_volume_4_volume_used",
+                  "name": "Volume 4"
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.durdur_volume_5_volume_utilise",
+                  "name": "Volume 5"
+                }
+              ],
+              "grid_options": {
+                "columns": "full"
+              }
+            }
+          ],
+          "column_span": 4
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.durdur_drive_1_temperature"
+                },
+                {
+                  "entity": "sensor.durdur_drive_2_temperature"
+                },
+                {
+                  "entity": "sensor.durdur_drive_3_temperature"
+                },
+                {
+                  "entity": "sensor.durdur_drive_4_temperature"
+                },
+                {
+                  "entity": "sensor.durdur_m_2_drive_1_temperature"
+                },
+                {
+                  "entity": "sensor.durdur_m_2_drive_2_temperature"
+                },
+                {
+                  "entity": "sensor.durdur_temperature"
+                }
+              ],
+              "title": "Température",
+              "hours_to_show": 720,
+              "logarithmic_scale": false,
+              "grid_options": {
+                "columns": "full"
+              }
+            }
+          ],
+          "column_span": 4
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "fan.fan_controller_fan_1",
+                  "name": "Fan 1"
+                },
+                {
+                  "entity": "sensor.fan_controller_fan_1_speed"
+                },
+                {
+                  "entity": "fan.fan_controller_fan_4",
+                  "name": "Fan 4"
+                },
+                {
+                  "entity": "sensor.fan_controller_fan_4_speed"
+                },
+                {
+                  "entity": "sensor.fan_controller_temperature"
+                },
+                {
+                  "entity": "sensor.fan_controller_humidity"
+                }
+              ],
+              "title": "Fan Controller"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "heading",
+              "heading_style": "title",
+              "heading": "Température de l'armoire"
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                "sensor.fan_controller_temperature"
+              ],
+              "hours_to_show": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "sections",
+      "max_columns": 4,
+      "title": "MushiMushi",
+      "path": "mushimushi",
+      "icon": "mdi:mower",
+      "sections": [
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "card": {
+                    "content": " ",
+                    "card_mod": {
+                      "style": "ha-card {\n  color: white;\n  font-variant: small-caps;\n  background-color: red;\n  text-align: center\n}\n"
+                    },
+                    "title": "Automower needs help",
+                    "type": "markdown"
+                  },
+                  "conditions": [
+                    {
+                      "condition": "state",
+                      "entity": "sensor.mushimushi_mower_status",
+                      "state": "7"
+                    }
+                  ],
+                  "type": "conditional"
+                },
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "condition": "state",
+                      "entity": "binary_sensor.mushimushi_winter_mode",
+                      "state": "off"
+                    }
+                  ],
+                  "card": {
+                    "type": "vertical-stack",
+                    "cards": [
+                      {
+                        "type": "horizontal-stack",
+                        "cards": [
+                          {
+                            "entity": "binary_sensor.mushimushi_weather_service",
+                            "tooltip": "Etat du service meteo",
+                            "show_entity_picture": true,
+                            "show_name": false,
+                            "font-size": "11px",
+                            "show_state": true,
+                            "show_label": true,
+                            "styles": {
+                              "card": [
+                                {
+                                  "height": "40px"
+                                },
+                                {
+                                  "padding": "5px"
+                                },
+                                {
+                                  "margin-top": "10px"
+                                },
+                                {
+                                  "border-top": "1px solid var(--state-icon-color)"
+                                },
+                                {
+                                  "border": "0px solid var(--primary-background-color)"
+                                },
+                                {
+                                  "font-size": "11px"
+                                }
+                              ]
+                            },
+                            "type": "custom:button-card"
+                          },
+                          {
+                            "entity": "sensor.mushimushi_health_voltage_batt",
+                            "tooltip": "Tension batterie Robonect",
+                            "show_entity_picture": true,
+                            "show_name": false,
+                            "font-size": "11px",
+                            "show_state": true,
+                            "show_label": true,
+                            "styles": {
+                              "card": [
+                                {
+                                  "height": "40px"
+                                },
+                                {
+                                  "padding": "5px"
+                                },
+                                {
+                                  "margin-top": "10px"
+                                },
+                                {
+                                  "border-top": "1px solid var(--state-icon-color)"
+                                },
+                                {
+                                  "border": "0px solid var(--primary-background-color)"
+                                },
+                                {
+                                  "font-size": "11px"
+                                }
+                              ]
+                            },
+                            "type": "custom:button-card"
+                          },
+                          {
+                            "entity": "sensor.mushimushi_health_voltage_int33",
+                            "tooltip": "Tension interne 3.3V Robonect",
+                            "show_entity_picture": true,
+                            "show_name": false,
+                            "font-size": "11px",
+                            "show_state": true,
+                            "show_label": true,
+                            "styles": {
+                              "card": [
+                                {
+                                  "height": "40px"
+                                },
+                                {
+                                  "padding": "5px"
+                                },
+                                {
+                                  "margin-top": "10px"
+                                },
+                                {
+                                  "border-top": "1px solid var(--state-icon-color)"
+                                },
+                                {
+                                  "border": "0px solid var(--primary-background-color)"
+                                },
+                                {
+                                  "font-size": "11px"
+                                }
+                              ]
+                            },
+                            "type": "custom:button-card"
+                          },
+                          {
+                            "entity": "sensor.mushimushi_health_climate_temperature",
+                            "tooltip": "Temperature interne du robot",
+                            "show_entity_picture": true,
+                            "show_name": false,
+                            "font-size": "11px",
+                            "show_state": true,
+                            "show_label": true,
+                            "styles": {
+                              "card": [
+                                {
+                                  "height": "40px"
+                                },
+                                {
+                                  "padding": "5px"
+                                },
+                                {
+                                  "margin-top": "10px"
+                                },
+                                {
+                                  "border-top": "1px solid var(--state-icon-color)"
+                                },
+                                {
+                                  "border": "0px solid var(--primary-background-color)"
+                                },
+                                {
+                                  "font-size": "11px"
+                                }
+                              ]
+                            },
+                            "type": "custom:button-card"
+                          },
+                          {
+                            "entity": "sensor.mushimushi_health_climate_humidity",
+                            "tooltip": "Humidite interne du robot",
+                            "show_entity_picture": true,
+                            "show_name": false,
+                            "font-size": "11px",
+                            "show_state": true,
+                            "show_label": true,
+                            "styles": {
+                              "card": [
+                                {
+                                  "height": "40px"
+                                },
+                                {
+                                  "padding": "5px"
+                                },
+                                {
+                                  "margin-top": "10px"
+                                },
+                                {
+                                  "border-top": "1px solid var(--state-icon-color)"
+                                },
+                                {
+                                  "border": "0px solid var(--primary-background-color)"
+                                },
+                                {
+                                  "font-size": "11px"
+                                }
+                              ]
+                            },
+                            "type": "custom:button-card"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "conditional",
+                        "conditions": [
+                          {
+                            "condition": "state",
+                            "entity": "sensor.mushimushi_mower_timer_next_unix",
+                            "state_not": "unknown"
+                          }
+                        ],
+                        "card": {
+                          "type": "markdown",
+                          "content": "{% set time = states.sensor.mushimushi_mower_timer_next_unix.state|as_datetime %} {% if time is not none %}\n    {% set day = as_timestamp(time)|timestamp_custom('%d', true)|int %}\n    {% set weekday = as_timestamp(time)|timestamp_custom('%w', true)|int %}\n    {% set month = as_timestamp(time)|timestamp_custom('%m', true)|int -1 %}\n    {% set weekday = [\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"][weekday] %}\n    {% set month = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"][month] %}\n    Next start scheduled on {{weekday}} {{day}} {{month}} at {{ as_timestamp(time)|timestamp_custom('%H:%M', true) }}\n{% else %}\n    No scheduled start time available.\n{% endif %}\n",
+                          "card_mod": {
+                            "style": "ha-card {\n  border-width: 0;\n  text-align: center;\n}\n"
+                          }
+                        }
+                      },
+                      {
+                        "type": "conditional",
+                        "conditions": [
+                          {
+                            "condition": "state",
+                            "entity": "binary_sensor.mushimushi_weather_service",
+                            "state": "on"
+                          }
+                        ],
+                        "card": {
+                          "type": "markdown",
+                          "content": "Service meteo actif.",
+                          "card_mod": {
+                            "style": "ha-card {\n  border-width: 0;\n  text-align: center;\n}\n"
+                          }
+                        }
+                      },
+                      {
+                        "type": "tile",
+                        "entity": "lawn_mower.mushimushi_robonect",
+                        "show_entity_picture": true,
+                        "vertical": true,
+                        "features": [
+                          {
+                            "type": "lawn-mower-commands",
+                            "commands": [
+                              "start_pause",
+                              "dock"
+                            ]
+                          }
+                        ],
+                        "card_mod": {
+                          "style": "ha-card {\n  border-width: 0;\n}\n"
+                        }
+                      },
+                      {
+                        "type": "horizontal-stack",
+                        "style": "ha-card {\n  margin-left: 10px;\n}\n",
+                        "cards": [
+                          {
+                            "show_name": true,
+                            "show_icon": true,
+                            "name": "Auto",
+                            "icon": "mdi:calendar-clock",
+                            "type": "custom:button-card",
+                            "tooltip": "MushiMushi travaille selon la programmation des timers.",
+                            "tap_action": {
+                              "action": "call-service",
+                              "service": "button.press",
+                              "target": {
+                                "entity_id": "button.mushimushi_auto"
+                              }
+                            },
+                            "entity": "button.mushimushi_auto",
+                            "styles": {
+                              "card": [
+                                {
+                                  "height": "44px"
+                                },
+                                {
+                                  "border": "0px solid var(--primary-background-color)"
+                                },
+                                {
+                                  "background": "#ffa600"
+                                },
+                                {
+                                  "color": "#000000"
+                                },
+                                {
+                                  "font-size": "12px"
+                                },
+                                {
+                                  "border-radius": "10px"
+                                },
+                                {
+                                  "--keep-background": "true"
+                                }
+                              ],
+                              "icon": [
+                                {
+                                  "color": "#000000"
+                                }
+                              ],
+                              "name": [
+                                {
+                                  "color": "#000000"
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "show_name": true,
+                            "show_icon": true,
+                            "name": "Manual",
+                            "icon": "mdi:hand-back-right",
+                            "type": "custom:button-card",
+                            "tooltip": "MushiMushi se recharge completement, quitte ensuite sa base et s'arrete. Placez-le manuellement a l'endroit voulu.",
+                            "entity": "button.mushimushi_man",
+                            "tap_action": {
+                              "action": "call-service",
+                              "service": "button.press",
+                              "target": {
+                                "entity_id": "button.mushimushi_man"
+                              }
+                            },
+                            "styles": {
+                              "card": [
+                                {
+                                  "height": "44px"
+                                },
+                                {
+                                  "border": "0px solid var(--primary-background-color)"
+                                },
+                                {
+                                  "background": "#ffa600"
+                                },
+                                {
+                                  "color": "#000000"
+                                },
+                                {
+                                  "font-size": "12px"
+                                },
+                                {
+                                  "border-radius": "10px"
+                                },
+                                {
+                                  "--keep-background": "true"
+                                }
+                              ],
+                              "icon": [
+                                {
+                                  "color": "#000000"
+                                }
+                              ],
+                              "name": [
+                                {
+                                  "color": "#000000"
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "show_name": true,
+                            "show_icon": true,
+                            "name": "End of day",
+                            "icon": "mdi:weather-sunset-down",
+                            "type": "custom:button-card",
+                            "tooltip": "MushiMushi retourne a sa base de recharge. Le lendemain il reprendra a l'heure programmee.",
+                            "tap_action": {
+                              "action": "call-service",
+                              "service": "button.press",
+                              "target": {
+                                "entity_id": "button.mushimushi_eod"
+                              }
+                            },
+                            "entity": "button.mushimushi_eod",
+                            "styles": {
+                              "card": [
+                                {
+                                  "height": "44px"
+                                },
+                                {
+                                  "border": "0px solid var(--primary-background-color)"
+                                },
+                                {
+                                  "background": "#ffa600"
+                                },
+                                {
+                                  "color": "#000000"
+                                },
+                                {
+                                  "font-size": "12px"
+                                },
+                                {
+                                  "border-radius": "10px"
+                                },
+                                {
+                                  "--keep-background": "true"
+                                }
+                              ],
+                              "icon": [
+                                {
+                                  "color": "#000000"
+                                }
+                              ],
+                              "name": [
+                                {
+                                  "color": "#000000"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "horizontal-stack",
+                        "cards": [
+                          {
+                            "type": "gauge",
+                            "entity": "sensor.mushimushi_health_voltage_batt",
+                            "needle": true,
+                            "min": 0,
+                            "max": 30,
+                            "segments": [
+                              {
+                                "from": 0,
+                                "color": "var(--error-color)"
+                              },
+                              {
+                                "from": 17.2,
+                                "color": "var(--warning-color)"
+                              },
+                              {
+                                "from": 19.3,
+                                "color": "var(--success-color)"
+                              }
+                            ],
+                            "name": "Batt",
+                            "card_mod": {
+                              "style": "ha-card {\n  border-width: 0;\n  border-radius: 0\n}\n"
+                            }
+                          },
+                          {
+                            "type": "gauge",
+                            "entity": "sensor.mushimushi_mower_battery_charge",
+                            "needle": true,
+                            "min": 0,
+                            "max": 100,
+                            "segments": [
+                              {
+                                "from": 0,
+                                "color": "var(--error-color)"
+                              },
+                              {
+                                "from": 20,
+                                "color": "var(--warning-color)"
+                              },
+                              {
+                                "from": 50,
+                                "color": "var(--success-color)"
+                              }
+                            ],
+                            "name": "Batt %",
+                            "card_mod": {
+                              "style": "ha-card {\n  border-width: 0;\n  border-radius: 0\n}\n"
+                            }
+                          },
+                          {
+                            "type": "gauge",
+                            "entity": "sensor.mushimushi_health_climate_temperature",
+                            "needle": true,
+                            "min": -10,
+                            "max": 60,
+                            "segments": [
+                              {
+                                "from": -10,
+                                "color": "var(--error-color)"
+                              },
+                              {
+                                "from": 0,
+                                "color": "var(--warning-color)"
+                              },
+                              {
+                                "from": 10,
+                                "color": "var(--success-color)"
+                              },
+                              {
+                                "from": 30,
+                                "color": "var(--warning-color)"
+                              }
+                            ],
+                            "name": "Temp",
+                            "card_mod": {
+                              "style": "ha-card {\n  border-width: 0;\n  border-radius: 0\n}\n"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "condition": "state",
+                      "entity": "binary_sensor.mushimushi_winter_mode",
+                      "state": "on"
+                    }
+                  ],
+                  "card": {
+                    "show_name": true,
+                    "show_icon": true,
+                    "type": "button",
+                    "tooltip": "Le mode hiver est actif",
+                    "tap_action": {
+                      "action": "more-info"
+                    },
+                    "entity": "binary_sensor.mushimushi_winter_mode",
+                    "name": "Wintermode",
+                    "hold_action": {
+                      "action": "none"
+                    }
+                  }
+                },
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "condition": "state",
+                      "entity": "binary_sensor.mushimushi_winter_mode",
+                      "state": "off"
+                    }
+                  ],
+                  "card": {
+                    "type": "entities",
+                    "entities": [
+                      {
+                        "entity": "sensor.mushimushi_mower_mode"
+                      },
+                      {
+                        "entity": "sensor.mushimushi_mower_status_plain"
+                      },
+                      {
+                        "entity": "sensor.mushimushi_mower_substatus_plain"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "column_span": 1
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.mushimushi_mower_mode"
+                },
+                {
+                  "entity": "sensor.mushimushi_mower_status_plain"
+                },
+                {
+                  "entity": "sensor.mushimushi_mower_status"
+                }
+              ],
+              "title": "Statut (72h)",
+              "hours_to_show": 72,
+              "grid_options": {
+                "columns": "full"
+              }
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.mushimushi_mower_battery_charge"
+                }
+              ],
+              "hours_to_show": 72,
+              "grid_options": {
+                "columns": "full",
+                "rows": 4
+              }
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.mushimushi_wlan_rssi"
+                }
+              ],
+              "hours_to_show": 72,
+              "grid_options": {
+                "columns": "full",
+                "rows": 3
+              }
+            }
+          ],
+          "column_span": 2
+        }
+      ],
+      "header": {
+        "card": {
+          "type": "markdown",
+          "text_only": true,
+          "content": "# MushiMushi"
+        }
+      },
+      "cards": [],
+      "dense_section_placement": false
+    },
+    {
+      "title": "Consommation",
+      "path": "consommation",
+      "icon": "mdi:home-lightning-bolt-outline",
+      "cards": [
+        {
+          "type": "history-graph",
+          "entities": [
+            {
+              "entity": "sensor.nodeid_12_electric_w_value"
+            }
+          ],
+          "title": "Consommation instantanée (W)"
+        }
+      ],
+      "type": "sidebar"
+    },
+    {
+      "type": "sidebar",
+      "path": "alertes",
+      "title": "Alertes",
+      "icon": "mdi:home-alert",
+      "cards": [
+        {
+          "type": "history-graph",
+          "entities": [
+            {
+              "entity": "binary_sensor.floodsensor02_aqara_water_leak"
+            }
+          ],
+          "title": "Fuite extérieur ",
+          "hours_to_show": 720
+        },
+        {
+          "type": "history-graph",
+          "entities": [
+            {
+              "entity": "binary_sensor.motion01_aqara_occupancy"
+            }
+          ],
+          "hours_to_show": 72,
+          "title": "Détection passage escalier"
+        }
+      ]
+    },
+    {
+      "type": "sections",
+      "max_columns": 4,
+      "title": "Aide",
+      "path": "aide",
+      "icon": "mdi:help",
+      "sections": [
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "markdown",
+              "content": "[MushiMushi](http://192.168.201.9)\n[DurDur](http://192.168.201.3)\n[qBitorrent](http://192.168.201.3:9080)\n[AdGuard](http://192.168.201.1:8080)\n[SmokePing](http://192.168.201.3:8080)\n[uptime-Kuma](http://192.168.201.3:5080)\n[Firefox](http://192.168.201.3:5800)\n[EBus C6](http://192.168.201.11/#/status)\n[Echo Show 8](http://192.168.201.13:2324/#dashboard)\n",
+              "title": "Liens"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.disk_use_percent",
+                  "name": "Utilisation du disque"
+                },
+                {
+                  "entity": "sensor.memory_use_percent",
+                  "name": "Utilisation de la mémoire"
+                },
+                {
+                  "entity": "sensor.processor_temperature",
+                  "name": "Température du processeur"
+                },
+                {
+                  "entity": "sensor.processor_use",
+                  "name": "Utilisation du processeur"
+                }
+              ],
+              "title": "DomoPi"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "title": "DomoPi"
+}
