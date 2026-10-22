@@ -23,7 +23,7 @@
 //
 // https://github.com/mnrgrrt/touch-music-card - MIT licensed.
 
-const VERSIE = '2.5.0-local.3';
+const VERSIE = '2.5.0-local.4';
 
 const KLEIN = (u) => (u || '')
   .replace('ab67616d0000b273', 'ab67616d00004851')
@@ -828,12 +828,14 @@ class MusicAssistantTouchCard extends HTMLElement {
     let uit = eigen;
     if (!(s && SPEELT.includes(s.state))) {
       const q = s && s.attributes ? s.attributes.active_queue : null;
-      const st = (this._hass && this._hass.states) || {};
       let viaGroep = null;
-      for (const id of Object.keys(st)) {
-        if (id === eigen || !id.startsWith('media_player.')) continue;
-        const a = st[id].attributes || {};
-        if (!a.mass_player_type || !SPEELT.includes(st[id].state)) continue;
+      for (const zone of this._zoneLijst()) {
+        const id = zone.entity;
+        if (!id || id === eigen || !id.startsWith('media_player.')) continue;
+        const player = this._st(id);
+        if (!player) continue;
+        const a = player.attributes || {};
+        if (!a.mass_player_type || !SPEELT.includes(player.state)) continue;
         if (q && a.active_queue === q) { viaGroep = id; break; }
         if (!viaGroep && (a.group_members || []).indexOf(eigen) !== -1) viaGroep = id;
       }
